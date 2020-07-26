@@ -65,15 +65,28 @@ class AnimalPage extends StatelessWidget {
       appBar: new AppBar(
         title: const Text('animal'),
       ),
-      body: new Center(
-        child: new FlatButton(
-          padding: EdgeInsets.all(10.0),
-          color: Colors.redAccent,
-          onPressed: () => {
-              Navigator.pop(context)},
-          child: new Text("もどる"),
-        ),
-      )
+      body: new Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage(
+                      "images/bg_animal.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            new Center(
+              child: new FlatButton(
+                padding: EdgeInsets.all(10.0),
+                color: Colors.redAccent,
+                onPressed: () => {
+                  Navigator.pop(context)},
+                child: new Text("もどる"),
+              ),
+            ),
+          ]
+      ),
     );
   }
 }
