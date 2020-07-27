@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Image.asset('images/logo.png'),
           FlatButton(
             padding: EdgeInsets.all(10.0),
-            color: Colors.redAccent,
+            color: Colors.blueAccent,
             onPressed: () => {Navigator.pushNamed(context, '/animalpage')},
             child: new Text("はじめる"),
           ),
@@ -67,7 +67,7 @@ class AnimalPage extends StatelessWidget {
         new Center(
           child: new FlatButton(
             padding: EdgeInsets.all(10.0),
-            color: Colors.redAccent,
+            color: Colors.white,
             onPressed: () => {Navigator.pop(context)},
             child: new Text("もどる"),
           ),
@@ -118,7 +118,7 @@ class AnimalPage1Widget extends StatelessWidget {
             ),
           ),
         ),
-        new Image.asset('images/logo.png'),
+        Image(image: AssetImage('images/animalpage1_item1.png')),
       ]),
       );
   }
