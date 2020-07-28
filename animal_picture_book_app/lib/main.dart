@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('APP'),
+        title: Text('start'),
       ),
       body: Center(
           child: Column(
@@ -59,12 +59,11 @@ class AnimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: const Text('animal'),
-      ),
       body: new Stack(children: <Widget>[
         new AnimalPageView(),
-        new Center(
+        Positioned(
+          left: 10.0,
+          top: 20.0,
           child: new FlatButton(
             padding: EdgeInsets.all(10.0),
             color: Colors.white,
@@ -118,9 +117,13 @@ class AnimalPage1Widget extends StatelessWidget {
             ),
           ),
         ),
-        Image(image: AssetImage('images/animalpage1_item1.png')),
+        Positioned(
+          left: 20.0,
+          bottom: 80.0,
+          child: Image.asset('images/animalpage1_item1.png'),
+        ),
       ]),
-      );
+    );
   }
 }
 
@@ -128,14 +131,21 @@ class AnimalPage2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("images/animalpage2_bg.png"),
-            fit: BoxFit.cover,
+      body: new Stack(children: <Widget>[
+        new Container(
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+              image: new AssetImage("images/animalpage2_bg.png"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-      ),
+        Positioned(
+          right: 60.0,
+          top: 80.0,
+          child: Image.asset('images/animalpage2_item1.png'),
+        ),
+      ]),
     );
   }
 }
@@ -144,14 +154,21 @@ class AnimalPage3Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("images/animalpage3_bg.png"),
-            fit: BoxFit.cover,
+      body: new Stack(children: <Widget>[
+        new Container(
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+              image: new AssetImage("images/animalpage3_bg.png"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-      ),
+        Positioned(
+          right: 20.0,
+          top: 250.0,
+          child: Image.asset('images/animalpage3_item1.png'),
+        ),
+      ]),
     );
   }
 }
