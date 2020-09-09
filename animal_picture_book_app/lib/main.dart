@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:infinity_page_view/infinity_page_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +32,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//スタート画面
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -40,21 +42,24 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset('images/logo.png'),
-          FlatButton(
-            padding: EdgeInsets.all(10.0),
-            color: Colors.blueAccent,
-            onPressed: () => {Navigator.pushNamed(context, '/animalpage')},
-            child: new Text("はじめる"),
-          ),
-        ],
-      )),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset('images/logo.png'),
+              FlatButton(
+                padding: EdgeInsets.all(10.0),
+                shape: StadiumBorder(),
+                color: Colors.blueAccent,
+                textColor: Colors.white,
+                onPressed: () => {Navigator.pushNamed(context, '/animalpage')},
+                child: new Text("はじめる"),
+              ),
+            ],
+          )),
     );
   }
 }
 
+//Animal　包括
 class AnimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -66,6 +71,7 @@ class AnimalPage extends StatelessWidget {
           top: 20.0,
           child: new FlatButton(
             padding: EdgeInsets.all(10.0),
+            shape: StadiumBorder(),
             color: Colors.white,
             onPressed: () => {Navigator.pop(context)},
             child: new Text("もどる"),
@@ -76,6 +82,7 @@ class AnimalPage extends StatelessWidget {
   }
 }
 
+//Animal　スクロール
 class AnimalPageView extends StatefulWidget {
   @override
   _AnimalPageViewState createState() => _AnimalPageViewState();
@@ -104,6 +111,7 @@ class _AnimalPageViewState extends State<AnimalPageView> {
   }
 }
 
+//Animal　1ページ目
 class AnimalPage1Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -120,13 +128,44 @@ class AnimalPage1Widget extends StatelessWidget {
         Positioned(
           left: 20.0,
           bottom: 80.0,
-          child: Image.asset('images/animalpage1_item1.png'),
-        ),
-      ]),
-    );
+          //画像タップ
+          child: GestureDetector(
+            onTap: () {
+            // タップでダイアログを表示
+              showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(24.0))),
+                    title: Center(child: Text("らいおん"),),
+                    content: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset('images/animalpage1_item1.png'),
+                          Padding(
+                              padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                              child: Text("がおがおがおがおがおがおがおがおがおがおがおがお〜〜〜"),
+                          ),
+                          FlatButton(
+                            child: Text("とじる"),
+                            shape: StadiumBorder(),
+                            color: Colors.black12,
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                          ]),
+                      ),
+                  ),
+              );
+            },
+            child: Image.asset('images/animalpage1_item1.png'),
+          ),
+          ),
+        ]),
+      );
   }
 }
 
+//Animal　2ページ目
 class AnimalPage2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -150,6 +189,7 @@ class AnimalPage2Widget extends StatelessWidget {
   }
 }
 
+//Animal　3ページ目
 class AnimalPage3Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
