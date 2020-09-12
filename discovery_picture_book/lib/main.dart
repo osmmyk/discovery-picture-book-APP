@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinity_page_view/infinity_page_view.dart';
+import 'package:discovery_picture_book/admob.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,20 +65,25 @@ class AnimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Stack(children: <Widget>[
-        new AnimalPageView(),
-        Positioned(
-          left: 10.0,
-          top: 20.0,
-          child: new FlatButton(
-            padding: EdgeInsets.all(10.0),
-            shape: StadiumBorder(),
-            color: Colors.white,
-            onPressed: () => {Navigator.pop(context)},
-            child: new Text("もどる"),
-          ),
+      body: new Column(children: <Widget>[
+        Expanded(
+          child: new Stack(children: <Widget>[
+            new AnimalPageView(),
+            Positioned(
+              left: 10.0,
+              top: 20.0,
+              child: new FlatButton(
+                padding: EdgeInsets.all(10.0),
+                shape: StadiumBorder(),
+                color: Colors.white,
+                onPressed: () => {Navigator.pop(context)},
+                child: new Text("もどる"),
+              ),
+            ),
+          ]),
         ),
-      ]),
+        AdMob.bannerAd(context),
+      ],)
     );
   }
 }
