@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "209066391990",
+    "firebase_url": "https://picturebook-dc859.firebaseio.com",
+    "project_id": "picturebook-dc859",
+    "storage_bucket": "picturebook-dc859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209066391990:android:33b03cdcf24d9cd8cc6917",
+        "android_client_info": {
+          "package_name": "osm.myk.discovery_picture_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209066391990-9jlaf38m5t4659clppepmutt6ak7834v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdwtxyQEOi5edhqiJwugu-UMn490HmqMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209066391990-9jlaf38m5t4659clppepmutt6ak7834v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "209066391990-rlgl8i7ecq74bu813s6069mas1u6vu6f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.discoveryPictureBook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
