@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:infinity_page_view/infinity_page_view.dart';
 import 'package:discovery_picture_book/admob.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+final player = AudioCache();
+AudioPlayer audioPlayer = AudioPlayer();
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    player.loadAll(['bgm_animal.mp3', 'tap.mp3']);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -35,6 +41,8 @@ class MyHomePage extends StatefulWidget {
 
 //スタート画面
 class _MyHomePageState extends State<MyHomePage> {
+
+  //final player = AudioCache();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 shape: StadiumBorder(),
                 color: Colors.blueAccent,
                 textColor: Colors.white,
-                onPressed: () => {Navigator.pushNamed(context, '/animalpage')},
                 child: new Text("はじめる"),
+                onPressed: () async => {
+                  Navigator.pushNamed(context, '/animalpage'),
+                  player.play('tap.mp3'),
+                  audioPlayer = await player.loop('bgm_animal.mp3')
+                  },
               ),
             ],
           )),
@@ -76,7 +88,11 @@ class AnimalPage extends StatelessWidget {
                 padding: EdgeInsets.all(10.0),
                 shape: StadiumBorder(),
                 color: Colors.white,
-                onPressed: () => {Navigator.pop(context)},
+                onPressed: () => {
+                  Navigator.pop(context),
+                  player.play('tap.mp3'),
+                  audioPlayer.stop()
+                  },
                 child: new Text("もどる"),
               ),
             ),
@@ -136,7 +152,8 @@ class AnimalPage1Widget extends StatelessWidget {
           bottom: 80.0,
           //画像タップ
           child: GestureDetector(
-            onTap: () {
+            onTap: () => {
+              player.play('tap.mp3'),
             // タップでダイアログを表示
               showDialog(
                   context: context,
@@ -156,12 +173,14 @@ class AnimalPage1Widget extends StatelessWidget {
                             child: Text("とじる"),
                             shape: StadiumBorder(),
                             color: Colors.black12,
-                            onPressed: () => Navigator.pop(context),
+                            onPressed: () => {
+                              player.play('tap.mp3'),
+                              Navigator.pop(context)},
                           ),
                           ]),
                       ),
                   ),
-              );
+              )
             },
             child: Image.asset('images/animalpage1_item1.png'),
           ),
