@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     player.loadAll(['bgm_animal.mp3', 'tap.mp3']);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -164,7 +165,7 @@ class AnimalPage1Widget extends StatelessWidget {
                     content: SingleChildScrollView(
                       child: Column(
                         children: <Widget>[
-                          Image.asset('images/animalpage1_item1.png'),
+                          Image.asset('images/test.gif'),
                           Padding(
                               padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                               child: Text("がおがおがおがおがおがおがおがおがおがおがおがお〜〜〜"),
@@ -182,7 +183,7 @@ class AnimalPage1Widget extends StatelessWidget {
                   ),
               )
             },
-            child: Image.asset('images/animalpage1_item1.png'),
+            child: Image.asset('images/test.gif'),
           ),
           ),
         ]),
